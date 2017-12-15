@@ -1,15 +1,18 @@
 newGame();
-$("#shop-again").on('click', newGame);
+$('#shop-again').on('click', newGame);
+$('#shop-again').css('cursor', 'pointer');
+
+
 /*========functions========*/
 function newGame() {
   //draw the headline
   $('h1').html('Thanks for shopping at the GWU Gem Store💎! Your total is $<span id="total"></span>')
-  //generate a number within 1000 with 2 decimals as the amount to be paid
+    //generate a number within 1000 with 2 decimals as the amount to be paid
   total = Number((Math.random() * 1000).toFixed(2));
   $('#total').text(total);
   //reset the paid amount to 0
   paid = 0;
-  $('#paid').text('$'+paid);
+  $('#paid').text('$' + paid);
   //at click-able events to the bills and coins
   $('[alt]').css('cursor', 'pointer')
   $('[alt]').on('click', payWithThis);
@@ -28,19 +31,18 @@ function payWithThis() {
     paid += parseInt(faceValue) / 100;
   }
   //update the paid amount and decide if game is over
-  $('#paid').text('$'+paid);
-  $('.progress-bar.bg-warning').css('width', paid/total*100+'%');
-  if (paid >= total) {
+  $('#paid').text('$' + paid);
+  $('.progress-bar.bg-warning').css('width', paid / total * 100 + '%');
+  if (paid - total > -0.0001) { //to deal with the computer math bug
     gameOver();
   }
 }
 
 function gameOver() {
-  if (paid > total) {
+  if (paid - total > 0.0001) { //to deal with the computer math bug
     $('h1').text('Did I hear "keep the change"? Thank you so much! Have a wonderful day💎!');
-  }
-  if (paid == total) {
-    $('h1').text("Wow! You're good at math!!");
+  } else {
+    $('h1').text("Wow! That's exactly right! You're good at math!!");
   }
   $('#shop-again').toggleClass('hidden', false); //reveal the shop again button
   removeClickListeners();
