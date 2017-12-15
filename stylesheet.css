@@ -1,0 +1,53 @@
+body {
+  font-family: 'Galindo', cursive;
+
+}
+
+header {
+  text-align: center;
+}
+
+.bills {
+  margin-top: .4rem;
+  margin-bottom: .6rem;
+
+}
+.bills,
+.coins {
+  width: 100%
+
+}
+
+img {
+  display: block;
+}
+
+.coin-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 2rem;
+  padding-top: 1em;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+#shop-again {
+  font-size: 1.5rem;
+  text-decoration: underline;
+  margin-top: 1rem;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.progress {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
