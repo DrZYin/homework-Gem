@@ -1,0 +1,1 @@
+I changed this folder name from Assets to assets, but it seems if I don't change something in this folder, the change of folder name won't reflect in git and github.
